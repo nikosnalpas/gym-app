@@ -100,26 +100,63 @@ export default function SignIn() {
 
   // ---------- login ----------
   // ---------- login ----------
-  const handleLogin = async () => {
-    setErrorMsg("");
-    setSuccessMsg("");
+const handleLogin = async () => {
+  setErrorMsg("");
+  setSuccessMsg("");
 
-    if (!loginEmail) return setErrorMsg("Παρακαλώ εισάγετε email");
-    if (!loginPwd) return setErrorMsg("Παρακαλώ εισάγετε κωδικό");
+  if (!loginEmail) return setErrorMsg("Παρακαλώ εισάγετε email");
+  if (!loginPwd) return setErrorMsg("Παρακαλώ εισάγετε κωδικό");
 
-    try {
-      // the hook should: POST to SIGN_IN_URL, store token, user, etc.
-      await loginWithAuthHook(loginEmail, loginPwd);
-      router.replace("/web"); // now token exists, /web won't redirect back
-    } catch (e: any) {
-      const m = e?.message || "";
-      if (m === "wrong-pwd") setErrorMsg("Λάθος κωδικός");
-      else if (m === "user-not-found") setErrorMsg("Ο χρήστης δεν βρέθηκε");
-      else if (m === "not-activated")
-        setErrorMsg("Ο λογαριασμός σας δεν έχει ενεργοποιηθεί ακόμη.");
-      else setErrorMsg("Αποτυχία σύνδεσης");
+  console.log("[AUTH] POST", SIGN_IN_URL, { email: loginEmail });
+  try {
+    const res = await fetch(SIGN_IN_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email: loginEmail, password: loginPwd }),
+    });
+
+    const raw = await res.text();
+    let json: any = null;
+    try { json = JSON.parse(raw); } catch {}
+
+    console.log("[AUTH] status:", res.status, "body(200 chars):", raw.slice(0,200));
+
+    if (res.ok && json?.user?.token) {
+      const u = json.user;
+      const token = u.token;
+
+      // Make a minimal, flat object exactly like the site expects in cookie "auth"
+      const seed = {
+        token,
+        user_id: u.user_id,
+        user_type: u.user_type || "",
+        email: u.email || "",
+        first_name: u.first_name || "",
+        last_name: u.last_name || "",
+        parent_email: u.parent_email || "",
+        parent_email2: u.parent_email2 || "",
+      };
+
+      // (optional) keep your auth context in sync
+      try { await loginWithAuthHook(loginEmail, loginPwd); } catch {}
+
+      // Pass both token and the flat user seed to /web
+      const uParam = encodeURIComponent(JSON.stringify(seed));
+      router.replace({ pathname: "/web", params: { token, u: uParam } });
+      return;
     }
-  };
+
+
+    const serverMsg =
+      (json && (json.message || json.error)) ||
+      (raw && raw.slice(0, 300)) ||
+      "Αποτυχία σύνδεσης";
+    setErrorMsg(serverMsg);
+  } catch (e: any) {
+    setErrorMsg("Δίκτυο: " + (e?.message || String(e)));
+  }
+};
+
 
   // ---------- register (UI only here) ----------
   const handleRegister = () => {
@@ -167,9 +204,13 @@ export default function SignIn() {
 
       console.log("[FORGOT] status:", res.status, "raw:", text);
 
-      if (res.ok) {
-        setSuccessMsg("Στάλθηκε email ανάκτησης (αν υπάρχει ο χρήστης).");
-        setOpenForgot(false);
+     if (res.ok && json && json.user && json.user.token) {
+        // persist token with your hook (unchanged)
+        await loginWithAuthHook(loginEmail, loginPwd);
+
+        // IMPORTANT: pass token as a route param so WebView can bootstrap even if context lags
+        router.replace({ pathname: "/web", params: { token: json.user.token } });
+        return;
       } else {
         setErrorMsg(
           (json && (json.message || json.error)) ||
@@ -243,10 +284,6 @@ export default function SignIn() {
                 secureTextEntry
               />
             </View>
-
-            <TouchableOpacity onPress={() => setOpenForgot(true)}>
-              <Text style={styles.linkText}>Ξέχασες τον κωδικό σου;</Text>
-            </TouchableOpacity>
 
             <TouchableOpacity style={styles.ctaButton} onPress={handleLogin}>
               <Text style={styles.ctaButtonText}>Είσοδος</Text>
