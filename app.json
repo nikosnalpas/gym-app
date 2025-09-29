@@ -2,7 +2,7 @@
   "expo": {
     "name": "Personal Studio Ioannou",
     "slug": "personal-studio-ioannou",
-    "version": "1.0.0",
+    "version": "1.0.1",                     
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -10,12 +10,11 @@
       "resizeMode": "contain",
       "backgroundColor": "#363636"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "bundleIdentifier": "gr.paliaflorina.personalstudio",
       "supportsTablet": false,
+      "buildNumber": "2",                
       "infoPlist": {
         "NSCameraUsageDescription": "Επιτρέψτε την κάμερα για αποστολή φωτογραφιών",
         "NSPhotoLibraryAddUsageDescription": "Αποθήκευση αρχείων από την εφαρμογή",
@@ -24,6 +23,7 @@
     },
     "android": {
       "package": "gr.paliaflorina.personalstudio",
+      "versionCode": 2,                   
       "permissions": [
         "INTERNET",
         "CAMERA",
@@ -40,18 +40,16 @@
       [
         "expo-build-properties",
         {
-          "android": {
-            "minSdkVersion": 24,
-            "compileSdkVersion": 35,
-            "targetSdkVersion": 35
-          }
+          "android": { "minSdkVersion": 24, "compileSdkVersion": 35, "targetSdkVersion": 35 }
         }
       ]
     ],
     "extra": {
-      "eas": {
-        "projectId": "6f6edf60-1397-4e2d-8aa8-709d897ef8f4"
-      }
+      "eas": { "projectId": "6f6edf60-1397-4e2d-8aa8-709d897ef8f4" }
+    },
+    "runtimeVersion": { "policy": "appVersion" },
+    "updates": {
+      "url": "https://u.expo.dev/6f6edf60-1397-4e2d-8aa8-709d897ef8f4"
     }
   }
 }
