@@ -2,7 +2,7 @@
   "expo": {
     "name": "Personal Studio Ioannou",
     "slug": "personal-studio-ioannou",
-    "version": "1.0.1",                     
+    "version": "1.0.2",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -14,7 +14,7 @@
     "ios": {
       "bundleIdentifier": "gr.paliaflorina.personalstudio",
       "supportsTablet": false,
-      "buildNumber": "2",                
+      "buildNumber": "3",
       "infoPlist": {
         "NSCameraUsageDescription": "Επιτρέψτε την κάμερα για αποστολή φωτογραφιών",
         "NSPhotoLibraryAddUsageDescription": "Αποθήκευση αρχείων από την εφαρμογή",
@@ -23,7 +23,7 @@
     },
     "android": {
       "package": "gr.paliaflorina.personalstudio",
-      "versionCode": 2,                   
+      "versionCode": 3,
       "permissions": [
         "INTERNET",
         "CAMERA",
@@ -40,7 +40,11 @@
       [
         "expo-build-properties",
         {
-          "android": { "minSdkVersion": 24, "compileSdkVersion": 35, "targetSdkVersion": 35 }
+          "android": {
+            "minSdkVersion": 24,
+            "compileSdkVersion": 35,
+            "targetSdkVersion": 35
+          }
         }
       ]
     ],

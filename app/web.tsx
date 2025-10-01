@@ -3,17 +3,21 @@ import React, { useMemo, useRef } from "react";
 import { StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { WebView } from "react-native-webview";
-import { useRouter, useLocalSearchParams } from "expo-router";
+import { useLocalSearchParams } from "expo-router";
 import { WEB_BASE_URL } from "@/constants/config";
 
 export default function WebScreen() {
-  const router = useRouter();
-  const { token: routeToken, u: routeU } = useLocalSearchParams<{ token?: string; u?: string }>();
+  const { token: routeToken, u: routeU } = useLocalSearchParams<{
+    token?: string;
+    u?: string;
+  }>();
 
   const jwt = (typeof routeToken === "string" && routeToken) || "";
   let seedUser: any = null;
   if (typeof routeU === "string" && routeU) {
-    try { seedUser = JSON.parse(decodeURIComponent(routeU)); } catch {}
+    try {
+      seedUser = JSON.parse(decodeURIComponent(routeU));
+    } catch {}
   }
 
   const webRef = useRef<WebView>(null);
@@ -29,9 +33,14 @@ export default function WebScreen() {
     return `
       (function(){
         try{
-          var jwt = ${BOOT_TOKEN};
-          var seed = ${SEED_USER};
+          var jwt    = ${BOOT_TOKEN};
+          var seed   = ${SEED_USER};
           var origin = ${ORIGIN};
+
+          // Build absolute URL from site origin
+          function abs(p){
+            try { return new URL(p, origin).toString(); } catch(e){ return p; }
+          }
 
           function setCookie(name, value, days){
             try{
@@ -41,12 +50,31 @@ export default function WebScreen() {
             }catch(e){}
           }
 
+          // Make sure Authorization + credentials are applied even on Android
+          function addAuthHeader(init){
+            init = init || {};
+            if (!init.credentials) init.credentials = "include";
+
+            if (typeof Headers !== "undefined") {
+              init.headers = new Headers(init.headers || {});
+              if (jwt && !init.headers.get("Authorization")) {
+                init.headers.set("Authorization", "Bearer " + jwt);
+              }
+            } else {
+              init.headers = init.headers || {};
+              if (jwt && !init.headers["Authorization"]) {
+                init.headers["Authorization"] = "Bearer " + jwt;
+              }
+            }
+            return init;
+          }
+
           function hydrate(u){
             if(!u) return;
             try{
               if (jwt) u.token = jwt;
 
-              // LocalStorage keys your site reads
+              // LocalStorage your site expects
               localStorage.setItem("auth","1");
               if (u.token) localStorage.setItem("token", u.token);
               localStorage.setItem("user", JSON.stringify(u));
@@ -55,42 +83,37 @@ export default function WebScreen() {
               localStorage.setItem("first_name", u.first_name || "");
               localStorage.setItem("last_name", u.last_name || "");
               localStorage.setItem("user_type", u.user_type || "");
-              // camelCase variants (some spots use these)
+              // camelCase variants
               localStorage.setItem("firstName", u.first_name || "");
               localStorage.setItem("lastName", u.last_name || "");
               localStorage.setItem("userType", u.user_type || "");
-
-              // Cookie that SPA code reads
+              // Cookie the SPA reads
               setCookie("auth", JSON.stringify(u), 200);
-
-              // Helpful global for any custom code
+              // Optional global
               window.currentUser = u;
             }catch(e){}
           }
 
-          // 1) Hydrate ASAP from the seed we passed from RN
+          // 1) Hydrate ASAP from RN seed to prevent /login bounce
           if (seed && (seed.token || jwt)) {
             hydrate(seed);
-            // avoid landing on /login if we already have creds
             try {
               var p=(location.pathname||"");
-              if (p==="/login" || p.indexOf("/login?")===0) { history.replaceState(null,"","/"); }
+              if (p==="/login" || p.indexOf("/login?")===0) {
+                history.replaceState(null,"","/");
+              }
             } catch(e){}
           }
 
-          // 2) Force Authorization header for same-origin API calls (fetch + XHR)
+          // 2) Force auth on same-origin fetch/XHR (Android-safe)
           (function forceAuth(){
             try{
               var _fetch = window.fetch;
               window.fetch = function(input,init){
-                init = init || {};
                 var url = (typeof input==="string") ? input : (input && input.url) || "";
-                // same-origin only
                 var u = new URL(url, location.href);
                 if (u.origin === origin && jwt){
-                  init.headers = new Headers(init.headers || {});
-                  if (!init.headers.get("Authorization")) init.headers.set("Authorization","Bearer "+jwt);
-                  if (!init.credentials) init.credentials = "include";
+                  init = addAuthHeader(init);
                 }
                 return _fetch(input, init);
               };
@@ -111,19 +134,18 @@ export default function WebScreen() {
             }catch(e){}
           })();
 
-          // 3) Set server cookie (auth_token) without redirect
+          // 3) Set server cookie via ABSOLUTE URL (Android requires this sometimes)
           if (jwt) {
-            fetch("/native-session", {
+            fetch(abs("/native-session"), addAuthHeader({
               method: "POST",
-              credentials: "include",
               headers: { "Content-Type": "application/json", "X-No-Redirect": "1" },
               body: JSON.stringify({ token: jwt })
-            }).catch(function(){});
+            })).catch(function(){});
           }
 
-          // 4) Confirm with /session once and re-hydrate with DB user
+          // 4) Confirm session via ABSOLUTE URL and re-hydrate with DB user
           (function confirm(){
-            fetch("/session", { credentials: "include" })
+            fetch(abs("/session"), addAuthHeader())
               .then(function(r){ return r.text().then(function(t){ return {r:r,t:t}; }); })
               .then(function(p){
                 try{
@@ -133,7 +155,7 @@ export default function WebScreen() {
                     if (jwt) u.token = jwt;
                     hydrate(u);
 
-                    // one-time hard reload so initial SPA boot sees everything
+                    // one-time hard reload so initial SPA boot sees all state
                     if (!sessionStorage.getItem("__rn_reloaded_once__")){
                       sessionStorage.setItem("__rn_reloaded_once__","1");
                       if ((location.pathname||"")==="/login") location.replace("/");
@@ -183,6 +205,7 @@ export default function WebScreen() {
         domStorageEnabled
         sharedCookiesEnabled
         thirdPartyCookiesEnabled
+        mixedContentMode="always"
         originWhitelist={["*"]}
         setSupportMultipleWindows={false}
         pullToRefreshEnabled={false}
