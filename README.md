@@ -48,3 +48,20 @@ Join our community of developers creating universal apps.
 
 - [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
 - [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+
+
+
+- eas build --profile=development --platform=android
+- eas build --profile=development --platform=ios
+   - 
+   - after finish, install from build url
+
+- npx expo start --dev-client
+
+- eas build --platform android
+- eas build --platform ios
+- eas build --platform all
+
+- eas submit -p android --latest
+- eas submit -p ios --latest
+ 

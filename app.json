@@ -27,8 +27,10 @@
       "permissions": [
         "INTERNET",
         "CAMERA",
-        "READ_MEDIA_IMAGES",
         "POST_NOTIFICATIONS"
+      ],
+      "blockedPermissions": [
+        "READ_MEDIA_IMAGES"
       ],
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
