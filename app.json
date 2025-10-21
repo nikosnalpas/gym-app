@@ -13,12 +13,18 @@
     "assetBundlePatterns": ["**/*"],
     "ios": {
       "bundleIdentifier": "gr.paliaflorina.personalstudio",
-      "supportsTablet": false,
+      "supportsTablet": true,
       "buildNumber": "3",
       "infoPlist": {
         "NSCameraUsageDescription": "Επιτρέψτε την κάμερα για αποστολή φωτογραφιών",
         "NSPhotoLibraryAddUsageDescription": "Αποθήκευση αρχείων από την εφαρμογή",
-        "ITSAppUsesNonExemptEncryption": false
+        "ITSAppUsesNonExemptEncryption": false,
+        "UISupportedInterfaceOrientations~ipad": [
+            "UIInterfaceOrientationPortrait",
+            "UIInterfaceOrientationPortraitUpsideDown",
+            "UIInterfaceOrientationLandscapeLeft",
+            "UIInterfaceOrientationLandscapeRight"
+        ]
       }
     },
     "android": {
