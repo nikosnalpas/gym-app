@@ -20,24 +20,18 @@
         "NSPhotoLibraryAddUsageDescription": "Αποθήκευση αρχείων από την εφαρμογή",
         "ITSAppUsesNonExemptEncryption": false,
         "UISupportedInterfaceOrientations~ipad": [
-            "UIInterfaceOrientationPortrait",
-            "UIInterfaceOrientationPortraitUpsideDown",
-            "UIInterfaceOrientationLandscapeLeft",
-            "UIInterfaceOrientationLandscapeRight"
+          "UIInterfaceOrientationPortrait",
+          "UIInterfaceOrientationPortraitUpsideDown",
+          "UIInterfaceOrientationLandscapeLeft",
+          "UIInterfaceOrientationLandscapeRight"
         ]
       }
     },
     "android": {
       "package": "gr.paliaflorina.personalstudio",
       "versionCode": 3,
-      "permissions": [
-        "INTERNET",
-        "CAMERA",
-        "POST_NOTIFICATIONS"
-      ],
-      "blockedPermissions": [
-        "READ_MEDIA_IMAGES"
-      ],
+      "permissions": ["INTERNET", "CAMERA", "POST_NOTIFICATIONS"],
+      "blockedPermissions": ["READ_MEDIA_IMAGES"],
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#363636"
@@ -59,7 +53,7 @@
     "extra": {
       "eas": { "projectId": "6f6edf60-1397-4e2d-8aa8-709d897ef8f4" }
     },
-    "runtimeVersion": { "policy": "appVersion" },
+    "runtimeVersion": "1.0.2",
     "updates": {
       "url": "https://u.expo.dev/6f6edf60-1397-4e2d-8aa8-709d897ef8f4"
     }
