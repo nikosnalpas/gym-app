@@ -1,4 +1,4 @@
-// MyFirstApp/babel.config.js
+// babel.config.js (or .ts)
 module.exports = function (api) {
   api.cache(true);
   return {
@@ -15,6 +15,7 @@ module.exports = function (api) {
           },
         },
       ],
+      "react-native-reanimated/plugin", // MUST be last
     ],
   };
 };

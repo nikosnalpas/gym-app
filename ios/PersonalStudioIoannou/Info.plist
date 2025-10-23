@@ -49,17 +49,38 @@
     <dict>
       <key>NSAllowsArbitraryLoads</key>
       <false/>
-      <key>NSAllowsLocalNetworking</key>
+      <key>NSAllowsArbitraryLoadsInWebContent</key>
       <true/>
+      <key>NSExceptionDomains</key>
+      <dict>
+        <key>paliaflorina.gr</key>
+        <dict>
+          <key>NSIncludesSubdomains</key>
+          <true/>
+        </dict>
+        <key>www.paliaflorina.gr</key>
+        <dict>
+          <key>NSIncludesSubdomains</key>
+          <true/>
+        </dict>
+      </dict>
     </dict>
     <key>NSCameraUsageDescription</key>
     <string>Επιτρέψτε την κάμερα για αποστολή φωτογραφιών</string>
+    <key>NSMicrophoneUsageDescription</key>
+    <string>Επιτρέψτε το μικρόφωνο για εγγραφή ήχου/βίντεο</string>
     <key>NSPhotoLibraryAddUsageDescription</key>
     <string>Αποθήκευση αρχείων από την εφαρμογή</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>Επιτρέψτε την πρόσβαση στη βιβλιοθήκη φωτογραφιών για επιλογή εικόνων</string>
     <key>NSUserActivityTypes</key>
     <array>
       <string>$(PRODUCT_BUNDLE_IDENTIFIER).expo.index_route</string>
     </array>
+    <key>NSUserTrackingUsageDescription</key>
+    <string>We use your device identifier to deliver relevant ads and analytics.</string>
+    <key>RCTNewArchEnabled</key>
+    <true/>
     <key>UILaunchStoryboardName</key>
     <string>SplashScreen</string>
     <key>UIRequiredDeviceCapabilities</key>

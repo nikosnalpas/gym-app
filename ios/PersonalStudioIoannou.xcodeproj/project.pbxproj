@@ -8,25 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
+		1894564C7D69BD0FE22838AD /* libPods-PersonalStudioIoannou.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D68FB4AE2EAA0D3CA6EA9457 /* libPods-PersonalStudioIoannou.a */; };
 		3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */; };
-		65142D9BFD1B6523CAA85BC2 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = C268F607DE412DB16AB8AD9B /* PrivacyInfo.xcprivacy */; };
-		A014AAD6625E29AA40FF46A6 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522EABF61F0FBEE54674C4C1 /* ExpoModulesProvider.swift */; };
-		A1EF4ABC6DAA6B4823957286 /* libPods-PersonalStudioIoannou.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5858CC11E0F5E30A22E22193 /* libPods-PersonalStudioIoannou.a */; };
+		4117F1ED56FC5F1B4C952BD3 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 215BDA4FA9721EE721C1AD46 /* PrivacyInfo.xcprivacy */; };
+		818E00B1434715EE95F0C93D /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A670A2FD3BF79D5D245AA8 /* ExpoModulesProvider.swift */; };
 		BB2F792D24A3F905000567C9 /* Expo.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB2F792C24A3F905000567C9 /* Expo.plist */; };
 		F11748422D0307B40044C1D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11748412D0307B40044C1D9 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		10A670A2FD3BF79D5D245AA8 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-PersonalStudioIoannou/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* PersonalStudioIoannou.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PersonalStudioIoannou.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = PersonalStudioIoannou/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = PersonalStudioIoannou/Info.plist; sourceTree = "<group>"; };
-		34BEA5FF26F0D212D69144C6 /* Pods-PersonalStudioIoannou.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PersonalStudioIoannou.release.xcconfig"; path = "Target Support Files/Pods-PersonalStudioIoannou/Pods-PersonalStudioIoannou.release.xcconfig"; sourceTree = "<group>"; };
-		522EABF61F0FBEE54674C4C1 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-PersonalStudioIoannou/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
-		5858CC11E0F5E30A22E22193 /* libPods-PersonalStudioIoannou.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PersonalStudioIoannou.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5D12722A13BB0BDB67D1EB99 /* Pods-PersonalStudioIoannou.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PersonalStudioIoannou.debug.xcconfig"; path = "Target Support Files/Pods-PersonalStudioIoannou/Pods-PersonalStudioIoannou.debug.xcconfig"; sourceTree = "<group>"; };
+		215BDA4FA9721EE721C1AD46 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = PersonalStudioIoannou/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		726FF951526E05EDEA03125E /* Pods-PersonalStudioIoannou.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PersonalStudioIoannou.debug.xcconfig"; path = "Target Support Files/Pods-PersonalStudioIoannou/Pods-PersonalStudioIoannou.debug.xcconfig"; sourceTree = "<group>"; };
 		AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SplashScreen.storyboard; path = PersonalStudioIoannou/SplashScreen.storyboard; sourceTree = "<group>"; };
 		BB2F792C24A3F905000567C9 /* Expo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Expo.plist; sourceTree = "<group>"; };
-		C268F607DE412DB16AB8AD9B /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = PersonalStudioIoannou/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		BCEB7153C755428FFAD5D833 /* Pods-PersonalStudioIoannou.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PersonalStudioIoannou.release.xcconfig"; path = "Target Support Files/Pods-PersonalStudioIoannou/Pods-PersonalStudioIoannou.release.xcconfig"; sourceTree = "<group>"; };
+		D68FB4AE2EAA0D3CA6EA9457 /* libPods-PersonalStudioIoannou.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PersonalStudioIoannou.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		F11748412D0307B40044C1D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = PersonalStudioIoannou/AppDelegate.swift; sourceTree = "<group>"; };
 		F11748442D0722820044C1D9 /* PersonalStudioIoannou-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "PersonalStudioIoannou-Bridging-Header.h"; path = "PersonalStudioIoannou/PersonalStudioIoannou-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -37,7 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1EF4ABC6DAA6B4823957286 /* libPods-PersonalStudioIoannou.a in Frameworks */,
+				1894564C7D69BD0FE22838AD /* libPods-PersonalStudioIoannou.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,28 +53,36 @@
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */,
-				C268F607DE412DB16AB8AD9B /* PrivacyInfo.xcprivacy */,
+				215BDA4FA9721EE721C1AD46 /* PrivacyInfo.xcprivacy */,
 			);
 			name = PersonalStudioIoannou;
-			sourceTree = "<group>";
-		};
-		29971467059C462A78B1A166 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				5D12722A13BB0BDB67D1EB99 /* Pods-PersonalStudioIoannou.debug.xcconfig */,
-				34BEA5FF26F0D212D69144C6 /* Pods-PersonalStudioIoannou.release.xcconfig */,
-			);
-			name = Pods;
-			path = Pods;
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				5858CC11E0F5E30A22E22193 /* libPods-PersonalStudioIoannou.a */,
+				D68FB4AE2EAA0D3CA6EA9457 /* libPods-PersonalStudioIoannou.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		41B679992C13E5C95638AAFC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				726FF951526E05EDEA03125E /* Pods-PersonalStudioIoannou.debug.xcconfig */,
+				BCEB7153C755428FFAD5D833 /* Pods-PersonalStudioIoannou.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		4A150DC4C910E59972A1C09A /* PersonalStudioIoannou */ = {
+			isa = PBXGroup;
+			children = (
+				10A670A2FD3BF79D5D245AA8 /* ExpoModulesProvider.swift */,
+			);
+			name = PersonalStudioIoannou;
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -91,8 +99,8 @@
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
-				29971467059C462A78B1A166 /* Pods */,
-				AF0D6AF01FFC74C5E539C3CB /* ExpoModulesProviders */,
+				41B679992C13E5C95638AAFC /* Pods */,
+				F771EA0F62B7F60A1C9EF0BD /* ExpoModulesProviders */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -107,22 +115,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		AF0D6AF01FFC74C5E539C3CB /* ExpoModulesProviders */ = {
-			isa = PBXGroup;
-			children = (
-				B8874DD55556114F7FE6D1FC /* PersonalStudioIoannou */,
-			);
-			name = ExpoModulesProviders;
-			sourceTree = "<group>";
-		};
-		B8874DD55556114F7FE6D1FC /* PersonalStudioIoannou */ = {
-			isa = PBXGroup;
-			children = (
-				522EABF61F0FBEE54674C4C1 /* ExpoModulesProvider.swift */,
-			);
-			name = PersonalStudioIoannou;
-			sourceTree = "<group>";
-		};
 		BB2F792B24A3F905000567C9 /* Supporting */ = {
 			isa = PBXGroup;
 			children = (
@@ -130,6 +122,14 @@
 			);
 			name = Supporting;
 			path = PersonalStudioIoannou/Supporting;
+			sourceTree = "<group>";
+		};
+		F771EA0F62B7F60A1C9EF0BD /* ExpoModulesProviders */ = {
+			isa = PBXGroup;
+			children = (
+				4A150DC4C910E59972A1C09A /* PersonalStudioIoannou */,
+			);
+			name = ExpoModulesProviders;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,13 +140,13 @@
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "PersonalStudioIoannou" */;
 			buildPhases = (
 				08A4A3CD28434E44B6B9DE2E /* [CP] Check Pods Manifest.lock */,
-				F131BBE437BB31395FE104C5 /* [Expo] Configure project */,
+				714D7601ADA26E6344671AD5 /* [Expo] Configure project */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				800E24972A6A228C8D4807E9 /* [CP] Copy Pods Resources */,
-				59A15AE39F61E29B5E3444E9 /* [CP] Embed Pods Frameworks */,
+				5A970B9D27EF92C2789A7A17 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -196,7 +196,7 @@
 				BB2F792D24A3F905000567C9 /* Expo.plist in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */,
-				65142D9BFD1B6523CAA85BC2 /* PrivacyInfo.xcprivacy in Resources */,
+				4117F1ED56FC5F1B4C952BD3 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,6 +210,8 @@
 			files = (
 			);
 			inputPaths = (
+				"$(SRCROOT)/.xcode.env",
+				"$(SRCROOT)/.xcode.env.local",
 			);
 			name = "Bundle React Native code and images";
 			outputPaths = (
@@ -240,23 +242,51 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		59A15AE39F61E29B5E3444E9 /* [CP] Embed Pods Frameworks */ = {
+		5A970B9D27EF92C2789A7A17 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-PersonalStudioIoannou/Pods-PersonalStudioIoannou-frameworks.sh",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/React-Core-prebuilt/React.framework/React",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/ReactNativeDependencies/ReactNativeDependencies.framework/ReactNativeDependencies",
 				"${PODS_XCFRAMEWORKS_BUILD_DIR}/hermes-engine/Pre-built/hermes.framework/hermes",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/React.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactNativeDependencies.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/hermes.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PersonalStudioIoannou/Pods-PersonalStudioIoannou-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		714D7601ADA26E6344671AD5 /* [Expo] Configure project */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/.xcode.env",
+				"$(SRCROOT)/.xcode.env.local",
+				"$(SRCROOT)/PersonalStudioIoannou/PersonalStudioIoannou.entitlements",
+				"$(SRCROOT)/Pods/Target Support Files/Pods-PersonalStudioIoannou/expo-configure-project.sh",
+			);
+			name = "[Expo] Configure project";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(SRCROOT)/Pods/Target Support Files/Pods-PersonalStudioIoannou/ExpoModulesProvider.swift",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# This script configures Expo modules and generates the modules provider file.\nbash -l -c \"./Pods/Target\\ Support\\ Files/Pods-PersonalStudioIoannou/expo-configure-project.sh\"\n";
 		};
 		800E24972A6A228C8D4807E9 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -273,16 +303,13 @@
 				"${PODS_CONFIGURATION_BUILD_DIR}/ExpoDevice/ExpoDevice_privacy.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/ExpoFileSystem/ExpoFileSystem_privacy.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/ExpoSystemUI/ExpoSystemUI_privacy.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/RCT-Folly/RCT-Folly_privacy.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/RNCAsyncStorage/RNCAsyncStorage_resources.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/ReachabilitySwift/ReachabilitySwift.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/React-Core/React-Core_privacy.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/React-cxxreact/React-cxxreact_privacy.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/SDWebImage/SDWebImage.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/boost/boost_privacy.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/expo-dev-launcher/EXDevLauncher.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/expo-dev-menu/EXDevMenu.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/glog/glog_privacy.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
@@ -294,40 +321,18 @@
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ExpoDevice_privacy.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ExpoFileSystem_privacy.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ExpoSystemUI_privacy.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/RCT-Folly_privacy.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/RNCAsyncStorage_resources.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ReachabilitySwift.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/React-Core_privacy.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/React-cxxreact_privacy.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SDWebImage.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/boost_privacy.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/EXDevLauncher.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/EXDevMenu.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/glog_privacy.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PersonalStudioIoannou/Pods-PersonalStudioIoannou-resources.sh\"\n";
 			showEnvVarsInLog = 0;
-		};
-		F131BBE437BB31395FE104C5 /* [Expo] Configure project */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "[Expo] Configure project";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# This script configures Expo modules and generates the modules provider file.\nbash -l -c \"./Pods/Target\\ Support\\ Files/Pods-PersonalStudioIoannou/expo-configure-project.sh\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -337,7 +342,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F11748422D0307B40044C1D9 /* AppDelegate.swift in Sources */,
-				A014AAD6625E29AA40FF46A6 /* ExpoModulesProvider.swift in Sources */,
+				818E00B1434715EE95F0C93D /* ExpoModulesProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,7 +351,7 @@
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5D12722A13BB0BDB67D1EB99 /* Pods-PersonalStudioIoannou.debug.xcconfig */;
+			baseConfigurationReference = 726FF951526E05EDEA03125E /* Pods-PersonalStudioIoannou.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -382,7 +387,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 34BEA5FF26F0D212D69144C6 /* Pods-PersonalStudioIoannou.release.xcconfig */;
+			baseConfigurationReference = BCEB7153C755428FFAD5D833 /* Pods-PersonalStudioIoannou.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -465,13 +470,10 @@
 				LIBRARY_SEARCH_PATHS = "$(SDKROOT)/usr/lib/swift\"$(inherited)\"";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					" ",
-				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
+				SWIFT_ENABLE_EXPLICIT_MODULES = NO;
 				USE_HERMES = true;
 			};
 			name = Debug;
@@ -523,12 +525,9 @@
 				);
 				LIBRARY_SEARCH_PATHS = "$(SDKROOT)/usr/lib/swift\"$(inherited)\"";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					" ",
-				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
+				SWIFT_ENABLE_EXPLICIT_MODULES = NO;
 				USE_HERMES = true;
 				VALIDATE_PRODUCT = YES;
 			};

@@ -1,4 +1,3 @@
-// app/web.tsx
 import React, { useMemo, useRef, useCallback } from "react";
 import { StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -6,32 +5,42 @@ import { WebView } from "react-native-webview";
 import { useLocalSearchParams } from "expo-router";
 import { WEB_BASE_URL } from "@/constants/config";
 
+const safeURL = (pathOrAbs: string, base?: string) => {
+  try {
+    return base
+      ? new URL(pathOrAbs, base).toString()
+      : new URL(pathOrAbs).toString();
+  } catch {
+    return "about:blank";
+  }
+};
+
 export default function WebScreen() {
   const { token: routeToken } = useLocalSearchParams<{ token?: string }>();
 
   const jwt = (typeof routeToken === "string" && routeToken) || "";
   const webRef = useRef<WebView>(null);
-  const didHandshakeRef = useRef(false); // becomes true after native-session redirect lands
+  const didHandshakeRef = useRef(false);
 
-  // Start directly at /native-session?token=... so the server sets cookies then redirects to "/"
   const startUrl = useMemo(() => {
     if (jwt) {
-      const u = new URL("/native-session", WEB_BASE_URL);
-      u.searchParams.set("token", jwt);
-      return u.toString();
+      return safeURL(
+        `/native-session?token=${encodeURIComponent(jwt)}`,
+        WEB_BASE_URL
+      );
     }
-    // No token passed from RN — show site login
-    return `${WEB_BASE_URL}/login`;
+    return safeURL("/login", WEB_BASE_URL);
   }, [jwt]);
 
-  // When navigation happens, mark handshake complete once we’ve left /native-session
   const onNavigationStateChange = useCallback((nav: any) => {
     try {
       const url = String(nav?.url || "");
-      const origin = new URL(WEB_BASE_URL).origin;
       const cur = new URL(url);
-      if (cur.origin === origin) {
-        // If we are no longer on /native-session, assume cookies are set
+      let origin = "";
+      try {
+        origin = new URL(WEB_BASE_URL).origin;
+      } catch {}
+      if (origin && cur.origin === origin) {
         if (!/\/native-session(?:$|\?)/.test(cur.pathname)) {
           didHandshakeRef.current = true;
         }
@@ -39,7 +48,6 @@ export default function WebScreen() {
     } catch {}
   }, []);
 
-  // If the app already finished the handshake, block any later navigations to /login
   const onShouldStartLoadWithRequest = useCallback((req: any) => {
     try {
       const reqUrl = new URL(req?.url || "", WEB_BASE_URL);
@@ -47,7 +55,6 @@ export default function WebScreen() {
       const isLogin = path === "/login";
 
       if (didHandshakeRef.current && isLogin) {
-        // We’re already authenticated at the server — keep user on "/"
         webRef.current?.injectJavaScript(
           'try{ if(location.pathname!=="/"){ location.replace("/"); } else { history.replaceState(null,"","/"); } }catch(e){}'
         );
@@ -64,8 +71,6 @@ export default function WebScreen() {
         source={{ uri: startUrl }}
         style={styles.webview}
         startInLoadingState
-        // No heavy injections needed — the server sets both cookies.
-        // Keep the handlers lightweight and deterministic:
         onNavigationStateChange={onNavigationStateChange}
         onShouldStartLoadWithRequest={onShouldStartLoadWithRequest}
         javaScriptEnabled
@@ -87,5 +92,5 @@ export default function WebScreen() {
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: "#363636" },
-  webview: { ...StyleSheet.absoluteFillObject },
+  webview: { flex: 1 },
 });

@@ -10,28 +10,51 @@
       "resizeMode": "contain",
       "backgroundColor": "#363636"
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "bundleIdentifier": "gr.paliaflorina.personalstudio",
       "supportsTablet": true,
       "buildNumber": "3",
       "infoPlist": {
         "NSCameraUsageDescription": "Επιτρέψτε την κάμερα για αποστολή φωτογραφιών",
+        "NSPhotoLibraryUsageDescription": "Επιτρέψτε την πρόσβαση στη βιβλιοθήκη φωτογραφιών για επιλογή εικόνων",
         "NSPhotoLibraryAddUsageDescription": "Αποθήκευση αρχείων από την εφαρμογή",
+        "NSMicrophoneUsageDescription": "Επιτρέψτε το μικρόφωνο για εγγραφή ήχου/βίντεο",
+        "NSUserTrackingUsageDescription": "We use your device identifier to deliver relevant ads and analytics.",
         "ITSAppUsesNonExemptEncryption": false,
         "UISupportedInterfaceOrientations~ipad": [
           "UIInterfaceOrientationPortrait",
           "UIInterfaceOrientationPortraitUpsideDown",
           "UIInterfaceOrientationLandscapeLeft",
           "UIInterfaceOrientationLandscapeRight"
-        ]
+        ],
+        "NSAppTransportSecurity": {
+          "NSAllowsArbitraryLoads": false,
+          "NSAllowsArbitraryLoadsInWebContent": true,
+          "NSExceptionDomains": {
+            "paliaflorina.gr": {
+              "NSIncludesSubdomains": true
+            },
+            "www.paliaflorina.gr": {
+              "NSIncludesSubdomains": true
+            }
+          }
+        }
       }
     },
     "android": {
       "package": "gr.paliaflorina.personalstudio",
       "versionCode": 3,
-      "permissions": ["INTERNET", "CAMERA", "POST_NOTIFICATIONS"],
-      "blockedPermissions": ["READ_MEDIA_IMAGES"],
+      "permissions": [
+        "INTERNET",
+        "CAMERA",
+        "POST_NOTIFICATIONS"
+      ],
+      "blockedPermissions": [
+        "READ_MEDIA_IMAGES"
+      ],
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#363636"
@@ -48,14 +71,18 @@
             "targetSdkVersion": 35
           }
         }
-      ]
+      ],
+      "expo-web-browser"
     ],
     "extra": {
-      "eas": { "projectId": "6f6edf60-1397-4e2d-8aa8-709d897ef8f4" }
+      "eas": {
+        "projectId": "6f6edf60-1397-4e2d-8aa8-709d897ef8f4"
+      }
     },
     "runtimeVersion": "1.0.2",
     "updates": {
-      "url": "https://u.expo.dev/6f6edf60-1397-4e2d-8aa8-709d897ef8f4"
+      "enabled": false,
+      "checkAutomatically": "NEVER"
     }
   }
 }
